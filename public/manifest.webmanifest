@@ -1,0 +1,15 @@
+{
+  "name": "Aim Training — treino de mira",
+  "short_name": "Aim Training",
+  "description": "Treino de mira grátis no navegador.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#0b0b10",
+  "theme_color": "#0b0b10",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

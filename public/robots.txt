@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://treino-de-mira.vercel.app/sitemap.xml

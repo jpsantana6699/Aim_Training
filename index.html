@@ -1,201 +1,78 @@
-<!DOCTYPE html>
-<html lang="pt-br" data-contexto="foco">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treino de Habilidades - Mira, Movimentação e Controle</title>
-    <link rel="shortcut icon" href="./imagens/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
-        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aim Training — treino de mira, tracking e reflexo grátis</title>
+    <meta
+      name="description"
+      content="Treino de mira grátis no navegador: Gridshot, Flick, Headshot, Spidershot, Tracking, Counter-strafe e Reflexo. Importe a sensi do CS2 e do Valorant. Sem instalar."
+    />
+    <meta name="theme-color" content="#0b0b10" />
+    <link rel="canonical" href="https://treino-de-mira.vercel.app/" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aim Training — treino de mira no navegador" />
+    <meta property="og:description" content="7 treinos, sensi do CS2 e do Valorant, nota de F a S+. Grátis, sem instalar." />
+    <meta property="og:url" content="https://treino-de-mira.vercel.app/" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content="https://treino-de-mira.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://treino-de-mira.vercel.app/og.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Unbounded:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/interface-principal.css">
-    <link rel="stylesheet" href="./css/resultado-modal.css">
-    <link rel="stylesheet" href="./css/treino-control-card.css">
-    <link rel="stylesheet" href="./css/treinos/treino-mira.css">
-    <link rel="stylesheet" href="./css/treinos/treino-movimento.css">
-    <link rel="stylesheet" href="./css/treinos/treino-controle.css">
-</head>
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="screen home" id="home">
+      <header class="topbar">
+        <img class="topbar__logo" src="/logo.png" alt="Aim Training" width="150" height="100" />
+        <div class="topbar__actions">
+          <button class="icon-button" data-toggle-music aria-label="Música" aria-pressed="false"></button>
+          <button class="icon-button" data-open-settings aria-label="Configurações"></button>
+        </div>
+      </header>
+      <div class="hero">
+        <h1 class="hero__title">Mira, controle e reflexo.<br /><span>Direto no navegador.</span></h1>
+        <p class="hero__text">Sessões curtas, nota de F a S+ e recordes salvos neste dispositivo.</p>
+        <div class="hero__controls">
+          <div class="segmented" role="radiogroup" aria-label="Duração" data-durations></div>
+          <button class="chip-button" data-sens-chip></button>
+        </div>
+      </div>
+      <div class="modes" data-modes></div>
+      <p class="notice" data-touch-notice hidden>
+        Os treinos de mira precisam de mouse. No celular, só o Reflexo funciona bem.
+      </p>
+      <footer class="footer">
+        Feito por
+        <a href="https://joaopedrotech.netlify.app" target="_blank" rel="noopener">João Pedro Santana</a>
+        ·
+        <a href="https://github.com/jpsantana6699/Aim_Training" target="_blank" rel="noopener">código no GitHub</a>
+      </footer>
+    </section>
 
-<body>
-    <main class="app">
-        <header class="app__header">
-            <figure class="app__logo-figure">
-                <img class="app__logo-image" src="./imagens/Aim.png" alt="">
-            </figure>
-        </header>
-        <section class="app__section-banner-container">
-            <h1 class="app__title">
-                5 minutos de treino de mira.<br>
-                <strong class="app__title-strong">Foco total. Disparos perfeitos.</strong>
-            </h1>
-            <figure class="app__image-figure">
-                <img class="app__image" src="./imagens/mira.png" alt="">
-            </figure>
-        </section>
-        <section class="app__section-card-container">
-            <div class="app__card">
-                <ul class="app__card-list">
-                    <li class="app__card-list-item">
-                        <button data-contexto="foco" class="app__card-button app__card-button--foco active">Mira</button>
-                    </li>
-                    <li class="app__card-list-item">
-                        <button data-contexto="descanso-curto" class="app__card-button app__card-button--curto">Movimentação</button>
-                    </li>
-                    <li class="app__card-list-item">
-                        <button data-contexto="descanso-longo" class="app__card-button app__card-button--longo">Controle</button>
-                    </li>
-                </ul>
-                <div id="timer" class="app__card-timer"></div>
-                <ul class="app__card-list">
-                    <li class="app__card-list-item">
-                        <label class="toggle">
-                            <input class="toggle-checkbox" type="checkbox" id="alternar-musica">
-                            <div class="toggle-switch"></div>
-                        </label>
-                    </li>
-                    <li class="app__card-list-item">
-                        <label class="app__card-list-label" for="alternar-musica">
-                            Música
-                        </label>
-                    </li>
-                </ul>
-                <div class="app__card-primary-button-wrapper">
-                    <button id="start-pause" class="app__card-primary-button">
-                        <img class="app__card-primary-button-icon" src="./imagens/play_arrow.png" alt="">
-                        <span>Começar</span>
-                    </button>
-                </div>
-            </div>
-        </section>
+    <section class="screen play" id="play" hidden>
+      <canvas class="play__canvas"></canvas>
+      <div class="hud">
+        <strong class="hud__score" data-hud="score"></strong>
+        <strong class="hud__timer" data-hud="time"></strong>
+        <span class="hud__detail" data-hud="detail"></span>
+      </div>
+      <div class="overlay" data-overlay hidden></div>
+    </section>
 
-        <section id="treino-mira" class="treino-mira hidden">
-            <!-- Card de controle compacto -->
-            <div class="treino-mira__control-card">
-                <div class="treino-card-timer" id="timer-treino-display">25:00</div>
-                <label class="treino-card-music-toggle">
-                    <input type="checkbox" id="musica-treino-header">
-                    <div class="treino-card-music-switch"></div>
-                    <span class="treino-card-music-icon">♪</span>
-                </label>
-                <button class="treino-card-pause-button" id="pause-treino-mira">
-                    <img src="./imagens/excluir.svg" alt="Pausar">
-                </button>
-            </div>
-            
-            <div class="treino-mira__stats-hidden">
-                <span id="pontos">0</span>
-                <span id="tempo-treino">25:00</span>
-                <span id="precisao">100%</span>
-            </div>
-            
-            <div class="treino-mira__area" id="area-treino">
-            </div>
-            
-            <div id="resultado-modal-mira" class="resultado-modal-mira hidden">
-                <div class="resultado-modal-mira__content">
-                    <h2 class="resultado-modal-mira__title">Treino de Mira Finalizado!</h2>
-                    <div class="resultado-modal-mira__stats">
-                        <div class="resultado-stat-mira">
-                            <span class="resultado-stat-mira__label">Pontos</span>
-                            <span class="resultado-stat-mira__value" id="resultado-pontos-mira">0</span>
-                        </div>
-                        <div class="resultado-stat-mira">
-                            <span class="resultado-stat-mira__label">Precisão</span>
-                            <span class="resultado-stat-mira__value" id="resultado-precisao-mira">100%</span>
-                        </div>
-                        <div class="resultado-stat-mira">
-                            <span class="resultado-stat-mira__label">Alvos Atingidos</span>
-                            <span class="resultado-stat-mira__value" id="resultado-alvos-mira">0/0</span>
-                        </div>
-                        <div class="resultado-stat-mira">
-                            <span class="resultado-stat-mira__label">Tempo Médio</span>
-                            <span class="resultado-stat-mira__value" id="resultado-tempo-medio-mira">0s</span>
-                        </div>
-                    </div>
-                    <div class="resultado-modal-mira__avaliacao">
-                        <div class="resultado-avaliacao-mira__nota" id="resultado-nota-mira">A</div>
-                        <div class="resultado-avaliacao-mira__texto" id="resultado-texto-mira">Excelente desempenho!</div>
-                    </div>
-                    <button id="resultado-continuar-mira" class="resultado-modal-mira__button">Continuar</button>
-                </div>
-            </div>
-        </section>
+    <section class="screen results" id="results" hidden></section>
 
-        <section id="treino-movimento" class="treino-movimento hidden">
-            <div class="treino-movimento__control-card">
-                <div class="treino-card-timer" id="timer-movimento-display">15:00</div>
-                <label class="treino-card-music-toggle">
-                    <input type="checkbox" id="musica-movimento-header">
-                    <div class="treino-card-music-switch"></div>
-                    <span class="treino-card-music-icon">♪</span>
-                </label>
-                <button class="treino-card-pause-button" id="pause-treino-movimento">
-                    <img src="./imagens/pause.png" alt="Pausar">
-                </button>
-            </div>
-            
-            <div class="treino-movimento__area" id="area-movimento">
-            </div>
-            
-            <div class="movimento-stats">
-                <span>Pontos: 0</span>
-                <span>Precisão: 100%</span>
-                <span>Sequências: 0</span>
-            </div>
-        </section>
+    <dialog class="settings" id="settings"></dialog>
 
-        <section id="treino-controle" class="treino-controle hidden">
-            <!-- Card de controle compacto -->
-            <div class="treino-controle__control-card">
-                <div class="treino-card-timer" id="timer-controle-display">8:00</div>
-                <label class="treino-card-music-toggle">
-                    <input type="checkbox" id="musica-controle-header">
-                    <div class="treino-card-music-switch"></div>
-                    <span class="treino-card-music-icon">♪</span>
-                </label>
-                <button class="treino-card-pause-button" id="pause-treino-controle">
-                    <img src="./imagens/pause.png" alt="Pausar">
-                </button>
-            </div>
-            
-            <div class="treino-controle__area" id="area-controle">
-                <div class="spray-pattern"></div>
-            </div>
-            
-            <div class="precisao-indicator">
-                <h3>Precisão</h3>
-                <div class="precisao-bar">
-                    <div class="precisao-bar__fill"></div>
-                </div>
-            </div>
-            
-            <!-- Stats do controle -->
-            <div class="controle-stats">
-                <span>Pontos: 0</span>
-                <span>Precisão: 100%</span>
-                <span>Padrões: 0</span>
-            </div>
-        </section>
-
-        <footer class="app__footer">
-            <p class="app__footer-text">
-                Projeto de treino de habilidades: mira, movimentação e controle. Desenvolvido por João Pedro Santana.
-            </p>
-        </footer>
-    </main>
-
-    <!-- Scripts Modulares -->
-    <script src="./js/main.js"></script>
-    <script src="./js/treinos/treino-mira.js"></script>
-    <script src="./js/treinos/treino-movimento.js"></script>
-    <script src="./js/treinos/treino-controle.js"></script>
-</body>
-
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
